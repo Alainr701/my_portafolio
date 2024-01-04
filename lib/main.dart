@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_portafolio/providers/app_provider.dart';
 import 'package:my_portafolio/ui/modules/macos/macos.dart';
+import 'package:my_portafolio/ui/modules/macos/splash_macos.dart';
 import 'package:provider/provider.dart';
 import 'package:vrouter/vrouter.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
   List<VRouteElement> get routes => [
         VWidget(
           path: MacOs.routeName,
-          widget: const MacOs(),
+          widget: const SplashMacOS(),
         ),
       ];
 }
