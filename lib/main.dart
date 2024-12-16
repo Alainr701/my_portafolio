@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_portafolio/providers/app_provider.dart';
 import 'package:my_portafolio/ui/modules/macos/macos.dart';
-import 'package:my_portafolio/ui/modules/macos/splash_macos.dart';
 import 'package:provider/provider.dart';
-import 'package:vrouter/vrouter.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() {
@@ -21,31 +19,15 @@ class MyApp extends StatelessWidget {
             create: (_) => AppProvider(),
           ),
         ],
-        builder: (context, child) => VRouter(
-              title: 'My Portafolio',
-              debugShowCheckedModeBanner: false,
-              initialUrl: MacOs.routeName,
-              theme: ThemeData(
-                  // fontFamily: 'Cabin',
-                  ),
-              supportedLocales: const [
-                Locale('en', 'US'),
-                Locale('es', 'ES'),
-              ],
-              // builder: EasyLoading.init(),
-              localizationsDelegates: const <LocalizationsDelegate>[
-                GlobalMaterialLocalizations.delegate,
-                GlobalWidgetsLocalizations.delegate,
-                GlobalCupertinoLocalizations.delegate
-              ],
-              routes: routes,
-            ));
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'My Portafolio',
+          // theme: ThemeData(
+          //   useMaterial3: true,
+          //   colorSchemeSeed: Colors.amber,
+          //   fontFamily: 'Poppins',
+          // ),
+          home: const MacOs(),
+        ));
   }
-
-  List<VRouteElement> get routes => [
-        VWidget(
-          path: MacOs.routeName,
-          widget: const SplashMacOS(),
-        ),
-      ];
 }
